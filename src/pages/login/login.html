@@ -1,0 +1,29 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            Login Page
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <ion-list>
+        <ion-item>
+            <ion-label floating >Username</ion-label>
+                <ion-input  [(ngModel)]="username"  type="text" >
+
+                    </ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating >Password</ion-label>
+            <ion-input [(ngModel)]="password" type="password" ></ion-input>
+        </ion-item>
+    </ion-list>
+    <div>
+            <button ion-button round style="text-align:center" (click)="Login()" >Login</button>
+    </div>
+    <div>
+            <button ion-button round style="text-align:center" (click)="GetItem()" >Check Storage</button>
+    </div>
+
+
+</ion-content>
