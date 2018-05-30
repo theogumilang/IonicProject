@@ -9,6 +9,8 @@ import { HomePage } from '../pages/home/home';
 import { HttpModule } from '@angular/http';
 import { AboutPage } from '../pages/about/about';
 import { LoginPage } from '../pages/login/login';
+import {PRListPage} from '../pages/PRList/PRList'
+import {PRListProvider} from '../providers/prlist/prlist';
 import {AuthProvider} from '../providers/auth/auth'
 
 @NgModule({
@@ -17,6 +19,7 @@ import {AuthProvider} from '../providers/auth/auth'
     HomePage,
     AboutPage,
     LoginPage,
+    PRListPage
   
   ],
   imports: [
@@ -30,13 +33,14 @@ import {AuthProvider} from '../providers/auth/auth'
     HomePage,
     AboutPage,
     LoginPage,
-    
+    PRListPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     AuthProvider,
     NativeStorage,
+    PRListProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

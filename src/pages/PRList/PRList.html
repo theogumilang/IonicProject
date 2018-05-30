@@ -1,0 +1,23 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            PRList
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <ion-list>
+  
+        <ion-card  *ngFor="let prlist of prlists" ion-item >
+            <ion-card-header>
+             {{prlist.parmPurchReqId}}
+            </ion-card-header>
+            <ion-card-content>
+             {{prlist.parmPurchReqName}}
+              <button  ion-button (click)="ApprovePR(prlist.parmWorkflowWorkItemTable)" color="secondary" small round>Approve</button>
+              <button ion-button (click)="RejectPR(prlist.parmWorkflowWorkItemTable)" color="danger" small round>Reject</button>
+            </ion-card-content>
+      </ion-card>
+    </ion-list>
+
+</ion-content>

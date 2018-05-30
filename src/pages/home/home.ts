@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import {NativeStorage} from '@ionic-native/native-storage'
 import { AboutPage } from '../about/about';
 import {LoginPage} from '../login/login';
+import {PRListPage} from '../PRList/PRList';
 
 @Component({
   selector: 'page-home',
@@ -14,7 +15,7 @@ export class HomePage {
 	}
 
   aboutPage() {
-  	this.navCtrl.push(AboutPage);
+  	this.navCtrl.push(PRListPage);
   }
   Logout(){
     this.nativestorage.remove('Auth').then(
