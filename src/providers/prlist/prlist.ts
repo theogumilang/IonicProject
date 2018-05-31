@@ -7,7 +7,7 @@ export class PRListProvider{
     constructor(public http : Http){
 
     }
-    GetPRList(){
+    GetPRList(token){
         let url = "http://139.255.50.205:4445/api/prgetlist ";
         let body = {
             "parmClaimsUser" :"ClaimGuy@MyApp.com",
@@ -15,12 +15,13 @@ export class PRListProvider{
         }
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
+        headers.append('Authorization', 'Bearer ' + token )
         let options = new RequestOptions({headers:headers})
         var response =  this.http.post(url,body, options ).map(res => res.json());
         return response;
        
     }
-    ApprovePR(RecId){
+    ApprovePR(RecId, token){
         let url = "http://139.255.50.205:4445/api/prapprove ";
         let body = {
             "parmClaimsUser" :"ClaimGuy@MyApp.com",
@@ -29,11 +30,12 @@ export class PRListProvider{
         }
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
+        headers.append('Authorization', 'Bearer ' + token)
         let options = new RequestOptions({headers:headers})
         var response =  this.http.post(url,body, options ).map(res => res.json());
         return response;
     }
-    RejectPR(RecId){
+    RejectPR(RecId, token){
         let url = "http://139.255.50.205:4445/api/prreject ";
         let body = {
             "parmClaimsUser" :"ClaimGuy@MyApp.com",
@@ -42,6 +44,7 @@ export class PRListProvider{
         }
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
+        headers.append('Authorization', 'Bearer ' + token )
         let options = new RequestOptions({headers:headers})
         var response =  this.http.post(url,body, options ).map(res => res.json());
         return response;

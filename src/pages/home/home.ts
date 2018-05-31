@@ -10,11 +10,12 @@ import {PRListPage} from '../PRList/PRList';
   templateUrl: 'home.html'
 })
 export class HomePage {
-
+ 
   constructor(public navCtrl: NavController, private nativestorage : NativeStorage) {
+
 	}
 
-  aboutPage() {
+  PrlistPage() {
   	this.navCtrl.push(PRListPage);
   }
   Logout(){
@@ -25,7 +26,7 @@ export class HomePage {
   }
   GetItem(){
     this.nativestorage.getItem('Auth').then(
-      data => alert(data.username)
+      data => alert(data.token)
     )
   }
 

@@ -7,11 +7,10 @@ export class AuthProvider{
     constructor(public http : Http){
 
     }
-    Auth(username, password){
-        var url = "http://employeeservice20180528105954.azurewebsites.net/token";
+    Auth(username){
+        var url = "http://139.255.50.205:4445/token ";
         let body = new URLSearchParams();
-        body.set('username', username),
-        body.set('password', password),
+        body.set('username', username),   
         body.set('grant_type', 'password')
      
 

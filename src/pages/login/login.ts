@@ -1,7 +1,7 @@
 import {Component} from '@angular/core'
 import {AuthProvider} from '../../providers/auth/auth'
 import {NativeStorage} from '@ionic-native/native-storage';
-import {NavController} from 'ionic-angular'
+import {NavController, LoadingController} from 'ionic-angular'
 import { HomePage } from '../home/home';
 
 @Component({
@@ -10,21 +10,31 @@ import { HomePage } from '../home/home';
 })
 export class LoginPage {
   username : string
-  password : string
 
-    constructor(public auth : AuthProvider, private nativestorage : NativeStorage, private navCtrl : NavController){
+
+    constructor(public auth : AuthProvider, private nativestorage : NativeStorage,
+       private navCtrl : NavController,public loadingctrl : LoadingController)
+       {
        
-    }
+       }
   
     Login(){
-     this.auth.Auth(this.username, this.password).subscribe(
+      let loading = this.loadingctrl.create({
+        content: "Please Wait"
+       
+       });
+       loading.present();
+     this.auth.Auth(this.username).subscribe(
        data =>{
         // let jsonstring = JSON.stringify(data);
         // alert(jsonstring);
-         this.nativestorage.setItem('Auth', {username: this.username, password: this.password, token : data.access_token})
+         this.nativestorage.setItem('Auth', {username: this.username, token : data.access_token})
          .then(
-            () =>
-            this.navCtrl.setRoot(HomePage)
+            () =>{
+              loading.dismiss();
+              this.navCtrl.setRoot(HomePage)
+            }
+            
         );
         
        },

@@ -6,12 +6,34 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <br>
-  <button ion-button color="light" (click)="aboutPage()" block>PR</button>
-  <br>
-  <button ion-button color="light" block>PO</button>
-  <br>
-  <button ion-button color="light" (click)="GetItem()" block>Travel Exp</button>
-  <button ion-button color="light" (click)="Logout()" block>Logout</button>
+<ion-content>
+  <ion-list  >
+  
+      <ion-item  (click)="PrlistPage()" >
+          <h2>PR</h2>
+          
+          <ion-icon  name="arrow-forward"    clear item-end></ion-icon>
+        </ion-item>
+
+        <ion-item (click)="PrlistPage()">
+            <h2>PO</h2>
+            
+            <ion-icon  name="arrow-forward"   clear item-end></ion-icon>
+          </ion-item>
+       
+          <ion-item (click)="GetItem()" >
+              <h2>TRAVEL EXP</h2>
+              
+              <ion-icon  name="arrow-forward"   clear item-end></ion-icon>
+            </ion-item>
+             
+          <ion-item (click)="Logout()"  >
+              <h2>LOGOUT</h2>
+              
+              <ion-icon  name="arrow-forward"   clear item-end></ion-icon>
+            </ion-item>
+            
+     
+   
+  </ion-list>
 </ion-content>
